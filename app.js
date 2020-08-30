@@ -31,7 +31,7 @@ app.get("/",function(req, res){
 	res.render("home");
 });
 
-app.get("/secret",function(req , res){
+app.get("/secret",isLoggedIn , function(req , res){
 	res.render("secretPage");
 });
 app.get("/register",function(req, res){
@@ -59,6 +59,16 @@ app.get("/login",function(req, res){
 	res.render("login");
 });
 
+app.get("/logout", function(req, res){
+	req.logout();
+	res.redirect("/");
+});
+function isLoggedIn(req, res, next){
+	if (req.isAuthenticated()){
+		return next();
+	}
+	res.redirect("/login");
+}
 app.listen(3000, function(){
 	console.log("your app is runnning ... ");
 })
