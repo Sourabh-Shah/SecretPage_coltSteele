@@ -1,2 +1,2 @@
 # SecretPage_coltSteele
-<p> sss</p><p> ss</p>
+<p>Simple webapp demonstarting the functionality of login, signup and signout</p>
